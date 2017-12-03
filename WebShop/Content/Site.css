@@ -109,7 +109,7 @@ textarea {
 
 #content .grid-style-properties {
     margin-left: -10px;
-    margin-right: 10px;
+    margin-right: -10px;
 }
 
 #content .grid-style-properties .preview-properties {
@@ -188,4 +188,15 @@ ul.contact {
 }
 .footer-subscribe p {
     margin-top: 0px;
+}
+
+.preview-properties {
+    background: white;
+}
+body {
+    background-image: url(/Content/diagonal-noise.png);
+}
+
+hr {
+    border-top: 1px solid #858585;
 }
