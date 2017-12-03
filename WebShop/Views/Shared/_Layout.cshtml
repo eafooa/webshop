@@ -23,7 +23,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Properties", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Properties", "Properties", "Home")</li>
                     <li>@Html.ActionLink("Agents", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -36,8 +36,8 @@
         <img src="/Content/p1.jpg" id="bg" alt="main-title"class="absolute" >
         <div class="container">
             <div class="">
-                <h1>Welcome to Webshop</h1>
-                <p>The Best Real Estate Website in Toronto</p>
+                <h1>@ViewBag.Heading</h1>
+                <p>@ViewBag.Subheading</p>
             </div>
         </div>
     </div>
