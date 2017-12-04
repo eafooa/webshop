@@ -25,7 +25,7 @@ namespace WebShop.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
+            ViewBag.Heading = "Contact";
             return View();
         }
 
