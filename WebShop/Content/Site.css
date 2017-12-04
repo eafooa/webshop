@@ -381,3 +381,6 @@ body {
     padding: 10px;
     margin-bottom: 10px;
 }
+.half {
+    width: 49%;
+}

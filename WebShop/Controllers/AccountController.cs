@@ -58,6 +58,7 @@ namespace WebShop.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            ViewBag.Heading = "Login";
             return View();
         }
 
@@ -139,6 +140,7 @@ namespace WebShop.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Heading = "Register";
             return View();
         }
 
@@ -167,7 +169,7 @@ namespace WebShop.Controllers
                 }
                 AddErrors(result);
             }
-
+            
             // If we got this far, something failed, redisplay form
             return View(model);
         }
