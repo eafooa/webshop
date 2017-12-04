@@ -18,7 +18,7 @@ namespace WebShop.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            ViewBag.Heading = "About";
             return View();
         }
 

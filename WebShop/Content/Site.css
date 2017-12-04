@@ -359,3 +359,25 @@ body {
 .pagination-lg a {
     color: #707070;
 }
+
+#content .dialog-box-style {
+    padding: 10px;
+    background: white;
+    margin-top: 15px;
+}
+
+#content .arrow-bottom {
+    border-left: 10px solid transparent;
+    border-top: 10px solid white;
+    border-right: 10px solid transparent;
+    position: absolute;
+    width: 1px;
+    margin-left: 20px;
+}
+
+#content .box-white {
+    background: white;
+    box-shadow: 0 1px 1px #858585;
+    padding: 10px;
+    margin-bottom: 10px;
+}
