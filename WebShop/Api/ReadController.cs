@@ -18,6 +18,12 @@ namespace WebShop.Api
         public GetUserController() : base(SQL.Users) { }
     }
 
+    public class GetLatestPController : ReadController
+    {
+        public GetLatestPController() : base(SQL.LatestP) { }
+    }
+
+
 
     #region
     public abstract class ReadController : ApiController

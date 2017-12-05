@@ -15,5 +15,7 @@ namespace WebShop.DAL
                                             PhoneNumber,
                                             UserName
                                        FROM AspNetUsers";
+
+        public const string LatestP = @" SELECT * from ad_master";
     }
 }
