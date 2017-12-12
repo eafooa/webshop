@@ -237,6 +237,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Ad1.jpg" />
+    <Content Include="Images\Ad1_1.JPG" />
+    <Content Include="Images\Ad1_2.JPG" />
+    <Content Include="Images\Ad1_3.JPG" />
+    <Content Include="Images\Ad1_4.JPG" />
+    <Content Include="Images\Ad1_5.JPG" />
     <Content Include="Images\Ad2.png" />
     <Content Include="Images\Ad3.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
