@@ -23,7 +23,15 @@ namespace WebShop.Api
         public GetLatestPController() : base(SQL.LatestP) { }
     }
 
+    //public class GetPropDetailController : ReadController
+    //{
+    //    public GetPropDetailController([FromUri] int id=0) : base(SQL.PropDetail.Replace("@ID",id+"")){  }
+    //}
 
+    public class GetPropDetailController : ReadController
+    {
+        public GetPropDetailController() : base(SQL.PropDetail) { }
+    }
 
     #region
     public abstract class ReadController : ApiController
@@ -43,7 +51,7 @@ namespace WebShop.Api
 
             using (SqlConnection con = new SqlConnection(connStr))
             {
-                using (var da = new SqlDataAdapter(SqlStr, con))
+                using (var da = new SqlDataAdapter(SqlStr.Replace("@ID", id + ""), con))
                 {
                     da.Fill(dt);
                 }

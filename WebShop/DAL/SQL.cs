@@ -19,8 +19,12 @@ namespace WebShop.DAL
         public const string LatestP = 
             @"  SELECT TOP 6 * from ad_master a, Images b 
                 where 
-	                a.adid=b.Id
+	                a.adid=b.adid
 	                and ImageType='ICON'
 	                order by UploadDate DESC";
+
+        public const string PropDetail =
+            @"  SELECT * from ad_master where adid=@ID; SELECT * from Images where adid=@ID";
+	                
     }
 }
