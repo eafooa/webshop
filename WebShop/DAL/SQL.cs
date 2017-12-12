@@ -16,6 +16,6 @@ namespace WebShop.DAL
                                             UserName
                                        FROM AspNetUsers";
 
-        public const string LatestP = @" SELECT * from ad_master";
+        public const string LatestP = @" SELECT * from ad_master a, Images b where a.adid=b.Id";
     }
 }
