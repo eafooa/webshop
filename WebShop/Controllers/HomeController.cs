@@ -35,5 +35,17 @@ namespace WebShop.Controllers
             ViewBag.Subheading = "More than billion properties listed";
             return View();
         }
+
+        public ActionResult PropertyDetails()
+        {
+            ViewBag.Heading = "Property Details";
+            return View();
+        }
+
+        public ActionResult NewProperty()
+        {
+            ViewBag.Heading = "New Property";
+            return View();
+        }
     }
 }
