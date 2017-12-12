@@ -297,6 +297,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Properties.cshtml" />
+    <Content Include="Views\Home\PropertyDetails.cshtml" />
+    <Content Include="Views\Home\NewProperty.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
