@@ -1,0 +1,3 @@
+﻿Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName
+4748efad-7706-405d-8fd9-d4d670464653,eafooa@yahoo.com,0,ABWhS5XSxPJtERGDd3ZPI9e/AjMyDws5SV+gpRKwg+DkIJqlU6TPTRxDssEWPGiyAQ==,df5b7cdf-9c0a-407e-9532-1d8e726307f6,NULL,0,0,NULL,1,0,eafooa@yahoo.com
+742a7d35-6420-4c46-bc11-2b798922c5ad,mrluonghuy@gmail.com,0,AEfG+4aVBnlBCYgNdrU/4TmMXyqDlznl079fNLMWRVTpgH9/nACCX+7nPyFEldehDQ==,870ab112-fdea-42ae-83e0-a3dd248a4943,NULL,0,0,NULL,1,0,mrluonghuy@gmail.com
