@@ -49,16 +49,24 @@ namespace WebShop.Api
             DataTable dt = new DataTable();
             var connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(connStr))
+            try
             {
-                using (var da = new SqlDataAdapter(SqlStr, con))
+                using (SqlConnection con = new SqlConnection(connStr))
                 {
-                    foreach (var parameter in parameters)
+                    using (var da = new SqlDataAdapter(SqlStr, con))
                     {
-                        da.SelectCommand.Parameters.AddWithValue("@"+parameter.Key, parameter.Value);
+                        foreach (var parameter in parameters)
+                        {
+                            da.SelectCommand.Parameters.AddWithValue("@" + parameter.Key, parameter.Value);
+                        }
+                        da.Fill(dt);
                     }
-                    da.Fill(dt);
                 }
+            }
+            catch (Exception)
+            {
+
+               
             }
 
             var response = Request.CreateResponse(HttpStatusCode.OK, dt, "application/json");
