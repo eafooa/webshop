@@ -24,7 +24,11 @@ namespace WebShop.DAL
 	                order by UploadDate DESC";
 
         public const string PropDetail =
-            @"  SELECT * from ad_master where adid=@ID; SELECT * from Images where adid=@ID";
-	                
+            @"  SELECT * from ad_master where adid=@ID";
+
+        public const string PImages =
+            @"  SELECT * from Images where adid=@ID and ImageType is null";
+
+
     }
 }

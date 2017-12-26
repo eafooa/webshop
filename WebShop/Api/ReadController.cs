@@ -23,14 +23,14 @@ namespace WebShop.Api
         public GetLatestPController() : base(SQL.LatestP) { }
     }
 
-    //public class GetPropDetailController : ReadController
-    //{
-    //    public GetPropDetailController([FromUri] int id=0) : base(SQL.PropDetail.Replace("@ID",id+"")){  }
-    //}
-
     public class GetPropDetailController : ReadController
     {
         public GetPropDetailController() : base(SQL.PropDetail) { }
+    }
+
+    public class GetPropImagesController : ReadController
+    {
+        public GetPropImagesController() : base(SQL.PImages) { }
     }
 
     #region
@@ -44,15 +44,19 @@ namespace WebShop.Api
         }
 
         // GET api/<controller>/5
-        public HttpResponseMessage Get(int id=0)
+        public HttpResponseMessage Get([FromUri] Dictionary<string,object> parameters=null)
         {
             DataTable dt = new DataTable();
             var connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             using (SqlConnection con = new SqlConnection(connStr))
             {
-                using (var da = new SqlDataAdapter(SqlStr.Replace("@ID", id + ""), con))
+                using (var da = new SqlDataAdapter(SqlStr, con))
                 {
+                    foreach (var parameter in parameters)
+                    {
+                        da.SelectCommand.Parameters.AddWithValue("@"+parameter.Key, parameter.Value);
+                    }
                     da.Fill(dt);
                 }
             }

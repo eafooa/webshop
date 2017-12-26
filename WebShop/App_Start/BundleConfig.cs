@@ -26,6 +26,7 @@ namespace WebShop
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/fotorama.css",
                       "~/Content/site.css"));
         }
     }
