@@ -1,0 +1,9 @@
+﻿Id,ImageFileName,AdId,ImageType,URL
+1,Ad1.jpg,1,ICON,NULL
+2,Ad2.png,2,ICON,NULL
+3,Ad3.png,3,ICON,NULL
+4,Ad1_1.jpg,1,NULL,NULL
+6,Ad1_2.jpg,1,NULL,NULL
+7,Ad1_3.jpg,1,NULL,NULL
+8,Ad1_4.jpg,1,NULL,NULL
+9,Ad1_5.jpg,1,NULL,NULL
