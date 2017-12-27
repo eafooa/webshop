@@ -277,6 +277,7 @@
     <Content Include="Images\Ad3_7.jpg" />
     <Content Include="Images\Ad3_8.jpg" />
     <Content Include="Images\Ad3_9.jpg" />
+    <Content Include="Images\ReMax.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />

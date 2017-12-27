@@ -23,6 +23,11 @@ namespace WebShop.Api
         public GetLatestPController() : base(SQL.LatestP) { }
     }
 
+    public class GetAllPController : ReadController
+    {
+        public GetAllPController() : base(SQL.AllP) { }
+    }
+
     public class GetPropDetailController : ReadController
     {
         public GetPropDetailController() : base(SQL.PropDetail) { }

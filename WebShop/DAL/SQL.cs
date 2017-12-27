@@ -23,6 +23,12 @@ namespace WebShop.DAL
 	                and ImageType='ICON'
 	                order by UploadDate DESC";
 
+        public const string AllP =
+           @"  SELECT * from ad_master a, Images b 
+                where 
+	                a.adid=b.adid
+	                and ImageType='ICON'";
+
         public const string PropDetail =
             @"  SELECT * from ad_master where adid=@ID";
 
