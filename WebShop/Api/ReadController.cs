@@ -13,6 +13,7 @@ using System.Configuration;
 
 namespace WebShop.Api
 {
+
     public class GetUserController : ReadController
     {
         public GetUserController() : base(SQL.Users) { }
@@ -25,7 +26,7 @@ namespace WebShop.Api
 
     public class GetAllPController : ReadController
     {
-        public GetAllPController() : base(SQL.AllP) { }
+        public GetAllPController() : base(SQL.SearchProperties) { }
     }
 
     public class GetPropDetailController : ReadController
@@ -49,7 +50,7 @@ namespace WebShop.Api
         }
 
         // GET api/<controller>/5
-        public HttpResponseMessage Get([FromUri] Dictionary<string,object> parameters=null)
+        public HttpResponseMessage Get([FromUri] Dictionary<string, object> parameters = null)
         {
             DataTable dt = new DataTable();
             var connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -68,10 +69,10 @@ namespace WebShop.Api
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-               
+
             }
 
             var response = Request.CreateResponse(HttpStatusCode.OK, dt, "application/json");

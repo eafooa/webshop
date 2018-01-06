@@ -334,6 +334,7 @@
     <Content Include="Views\Home\Properties.cshtml" />
     <Content Include="Views\Home\PropertyDetails.cshtml" />
     <Content Include="Views\Home\NewProperty.cshtml" />
+    <Content Include="Views\Home\_Search.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

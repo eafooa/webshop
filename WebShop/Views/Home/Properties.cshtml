@@ -10,108 +10,14 @@
             Properties
         </h2>
         <hr />
-        
+
         <div class="list-properties right-space">
-            <div id="AllProp"></div>    
+            <div id="AllProp"></div>
         </div>
 
         <nav aria-label="Page navigation"><ul class="pagination pagination-lg"> <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">«</span> </a> </li> <li><a href="#">1</a></li> <li><a href="#">2</a></li> <li><a href="#">3</a></li> <li><a href="#">4</a></li> <li><a href="#">5</a></li> <li> <a href="#" aria-label="Next"> <span aria-hidden="true">»</span> </a> </li> </ul> </nav>
     </div>
-    <div class="col-md-3">
-        <h2>
-            <i class="fa fa-search" aria-hidden="true"></i>
-            Search
-        </h2>
-        <hr />
-        <form class="bottom-line line-before" action="?" method="get">
-            <div class="form-group">
-                <label>Location</label>
-                <input type="text" placeholder="Type Your Location" name="" value="" class="input-block-level form-control" required="">
-            </div>
-            <div class="form-group">
-                <label>Radius</label>
-                <select name="" class="input-block-level form-control" required="">
-                    <option value="">This area only</option>
-                    <option value="">Within 1/4 mile</option>
-                    <option value="">Within 1/2 mile</option>
-                    <option value="">Within 1 mile</option>
-                    <option value="">Within 3 miles</option>
-                    <option value="">Within 5 miles</option>
-                    <option value="">Within 10 miles</option>
-                    <option value="">Within 15 miles</option>
-                    <option value="">Within 20 miles</option>
-                    <option value="">Within 30 miles</option>
-                    <option value="">Within 40 miles</option>
-                </select>
-            </div>
-            <div class="control-group-form">
-                <div class="control-group half pull-left">
-                    <label class="control-label">Min Price</label>
-                    <div class="controls">
-                        <select name="" class="input-block-level form-control" required="">
-                            <option value="">All</option>
-                            <option value="1">1000</option>
-                            <option value="9">2000</option>
-                            <option value="9">3000</option>
-                            <option value="9">4000</option>
-                            <option value="9">5000+</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="control-group half text-right pull-right">
-                    <label class="control-label">Max Price</label>
-                    <div class="controls">
-                        <select name="" class="input-block-level form-control" required="">
-                            <option value="">All</option>
-                            <option value="1">10000</option>
-                            <option value="9">20000</option>
-                            <option value="9">30000</option>
-                            <option value="9">40000</option>
-                            <option value="9">50000+</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="control-group-form">
-                <div class="control-group half pull-left">
-                    <label class="checkbox">
-                        <input type="checkbox"> Rent Property
-                    </label>
-                </div>
-                <div class="control-group half text-right pull-right">
-                    <label class="checkbox">
-                        <input type="checkbox"> Sell Property
-                    </label>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="form-group">
-                <label>Bath</label>
-                <select name="" class="input-block-level form-control" required="">
-                    <option value="">All</option>
-                    <option value="1">1</option>
-                    <option value="9">2</option>
-                    <option value="9">3</option>
-                    <option value="9">4</option>
-                    <option value="9">5+</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Beds</label>
-                <select name="" class="input-block-level form-control" required="">
-                    <option value="">All</option>
-                    <option value="1">1</option>
-                    <option value="9">2</option>
-                    <option value="9">3</option>
-                    <option value="9">4</option>
-                    <option value="9">5+</option>
-                </select>
-            </div>
-            <button type="submit" class="input-block-level btn-proper btn btn-large"> Search</button>
-        </form>
-    </div>
+    @Html.Partial("_Search")
 </div>
 
 
@@ -160,10 +66,32 @@
             authHeaders.Authorization = 'Bearer ' + accesstoken;
         }
 
+        var parameters = {};
+
+        parameters['[' + 0 + '].Key'] = "Location";
+        parameters['[' + 0 + '].Value'] = getUrlParameter('Location');
+
+        parameters['[' + 1 + '].Key'] = "MinP";
+        parameters['[' + 1 + '].Value'] = getUrlParameter('MinP');
+
+        parameters['[' + 2 + '].Key'] = "MaxP";
+        parameters['[' + 2 + '].Value'] = getUrlParameter('MaxP');
+
+        parameters['[' + 3 + '].Key'] = "AdType";
+        parameters['[' + 3 + '].Value'] = getUrlParameter('AdType');
+
+        parameters['[' + 4 + '].Key'] = "Bed";
+        parameters['[' + 4 + '].Value'] = getUrlParameter('Bed');
+
+        parameters['[' + 5 + '].Key'] = "Bath";
+        parameters['[' + 5 + '].Value'] = getUrlParameter('Bath');
+
+        debugger;
 
         $.ajax({
             method: 'GET',
             url: '@Url.Content("~/api/GetAllP")',
+            data: parameters,
             headers: authHeaders,
             success: function (data) {
                 displayData(data);
@@ -176,5 +104,16 @@
         });
     });
 
+
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        if (name == 'MinP') return results === null ? '0' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        if (name == 'MaxP') return results === null ? '9999999' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+
+
+        return results === null ? '%' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
 
 </script>
